@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: API CEP
+  version: 1.0.0
+paths:
+  /cep/{cep}:
+    get:
+      summary: Busca informações de um CEP
+      parameters:
+        - name: cep
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Informações do CEP
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  cep:
+                    type: string
+                  logradouro:
+                    type: string
+                  bairro:
+                    type: string
+                  cidade:
+                    type: string
+                  estado:
+                    type: string

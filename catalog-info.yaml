@@ -62,3 +62,30 @@ spec:
   owner: user:default/guest
   dependencyOf:
     - component:default/api-cep
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: api-cep
+  description: API simples em FastAPI para consultar CEP via ViaCEP
+  tags:
+    - api
+    - rest
+    - python
+    - fastapi
+    - docker
+    - backend
+    - openapi
+
+  annotations:
+    github.com/project-slug: biaflow-org/ieso-dias-curso-api-cep
+
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: user:default/guest
+  system: api-cep
+  definition: 
+    $text: ./openapi.yaml
+  
