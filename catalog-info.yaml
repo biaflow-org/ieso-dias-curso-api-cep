@@ -1,4 +1,14 @@
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: api-cep # O nome referenciado no seu YAML da API
+  description: Sistema de consulta de endereços
+spec:
+  owner: user:default/guest
+
+---  
+
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: api-cep
@@ -33,6 +43,7 @@ spec:
   type: service
   lifecycle: experimental
   owner: user:default/guest
+  system: api-cep
   providesApis:
     - api-cep
   dependsOn:
@@ -60,6 +71,7 @@ metadata:
 spec:
   type: external-api
   owner: user:default/guest
+  system: api-cep
   dependencyOf:
     - component:default/api-cep
 
@@ -88,4 +100,3 @@ spec:
   system: api-cep
   definition: 
     $text: ./openapi.yaml
-  
